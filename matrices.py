@@ -1,0 +1,76 @@
+from manim import *
+
+class Matrices(Scene):
+    def construct(self):
+        matrix_text = Text("Matrix",font_size=100,color=BLUE)
+        self.play(Write(matrix_text),run_time=1.5)
+        self.wait()
+        self.play(Unwrite(matrix_text),run_time=1.5)
+        self.wait()
+        matrix_def = Text("A Matrix is a\nrepresentation for a\nrange of numbers\ninto rows and columns",font_size=80,t2c={"Matrix":GREEN,"rows":BLUE,"columns":BLUE})
+        self.play(Write(matrix_def),run_time=2)
+        self.wait()
+        self.play(Unwrite(matrix_def))
+        self.wait()
+        matrix = Matrix([[1,2,3],[4,5,6]])
+        self.play(Create(matrix))
+        self.wait()
+        cols_arrows = []
+        for column in matrix.get_columns():
+            arrow = Arrow(stroke_width=3,color = ORANGE).rotate(-np.pi/2).next_to(column,UP)
+            cols_arrows.append(arrow)
+            self.play(GrowArrow(arrow))
+        self.play(Create(Text("columns",color=ORANGE,font_size=25).next_to(cols_arrows[1],UP)),run_time=.5)
+        rows_brac = Brace(matrix.get_rows(),RIGHT,buff=.6,color= BLUE)
+        self.play(Create(rows_brac))
+        self.play(Create(Text("rows",color=BLUE,font_size=25).next_to(rows_brac,RIGHT,buff=-.1).rotate(-np.pi/2)),run_time=.5)
+        self.wait()
+        self.clear()
+        self.wait()
+        matrix_dim_text = Text("Matrix Dimension",font_size=100,color=BLUE)
+        self.play(Write(matrix_dim_text),run_time=1.5)
+        self.wait()
+        self.play(Unwrite(matrix_dim_text),run_time=1.5)
+        self.wait()
+        b = MathTex(r"""
+                    B = \begin{bmatrix}
+                        -8 & -4\\
+                        23 & 12\\
+                        18 & 10
+                    \end{bmatrix}
+                    """)
+        self.play(Write(b))
+        self.play(ApplyMethod(b.shift,2*LEFT))
+        rows_cols = MathTex(r"2 * 3",tex_to_color_map={"2":BLUE,"3":PURE_GREEN})
+        other_rc = MathTex(r"(2,3)",tex_to_color_map={"2":BLUE,"3":PURE_GREEN})
+        self.play(Create(rows_cols.shift(RIGHT)))
+        self.play(Circumscribe(rows_cols))
+        self.play(ApplyMethod(rows_cols.shift,UP))
+        self.play(Create(other_rc.next_to(rows_cols,DOWN).shift(DOWN)))
+        self.play(Circumscribe(other_rc))
+        self.wait()
+        self.clear()
+        self.wait()
+        matrix_elem_text = Text("Matrix Elements",font_size=100,color=BLUE)
+        self.play(Write(matrix_elem_text),run_time=1.5)
+        self.wait()
+        self.play(Unwrite(matrix_elem_text),run_time=1.5)
+        self.wait()
+        g_q = MathTex(r"G = ")
+        g_m = Matrix([[4,14,-7],[18,5,13],[-20,4,22]]).next_to(g_q,RIGHT)
+        g = VGroup(g_q,g_m).move_to(ORIGIN)
+        self.play(Create(g))
+        self.play(ApplyMethod(g.shift,UP))
+        caption1 = MathTex(r"\text{The element}\:G_{21}\:\text{is the entry in}",tex_to_color_map={"2":BLUE,"1":PURE_GREEN})
+        caption2 = MathTex(r"\text{the second row and the first column}",tex_to_color_map={"second row":BLUE,"first column":PURE_GREEN})
+        self.play(Write(caption1.next_to(g,DOWN).shift(DOWN)))
+        self.play(Write(caption2.next_to(caption1,DOWN)))
+        colors = [BLUE,PURE_GREEN]
+        target = [g.submobjects[1].get_rows()[1],g.submobjects[1].get_columns()[0]]
+        self.play(*[Create(Rectangle(width=item.width+.1,height=item.height+.1,color=colors[target.index(item)]).move_to(item.get_center())) for item in target])
+        t = g.submobjects[1].get_rows()[1].submobjects[0].copy().move_to(ORIGIN)
+        self.wait()
+        self.clear()
+        self.play(Create(t))
+        self.play(ApplyMethod(t.scale,4))
+        self.wait()

@@ -1,0 +1,2 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/Dell/Desktop/projects_done/animations/media/videos/kruskal/1080p60/partial_movie_files/Kruskal/3977891868_2843964285_223132457.mp4'

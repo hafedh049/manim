@@ -1,0 +1,7 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/Dell/Desktop/animations/media/videos/sierpenski_triangle/1080p60/partial_movie_files/SierpenskiTriangleChaos/3580482772_2786978250_3172038923.mp4'
+file 'file:C:/Users/Dell/Desktop/animations/media/videos/sierpenski_triangle/1080p60/partial_movie_files/SierpenskiTriangleChaos/1366727168_863150978_3172038923.mp4'
+file 'file:C:/Users/Dell/Desktop/animations/media/videos/sierpenski_triangle/1080p60/partial_movie_files/SierpenskiTriangleChaos/1366727168_329969645_1611858089.mp4'
+file 'file:C:/Users/Dell/Desktop/animations/media/videos/sierpenski_triangle/1080p60/partial_movie_files/SierpenskiTriangleChaos/1366727168_1055433910_2957300547.mp4'
+file 'file:C:/Users/Dell/Desktop/animations/media/videos/sierpenski_triangle/1080p60/partial_movie_files/SierpenskiTriangleChaos/1366727168_350243067_3473236664.mp4'
+file 'file:C:/Users/Dell/Desktop/animations/media/videos/sierpenski_triangle/1080p60/partial_movie_files/SierpenskiTriangleChaos/1366727168_125286499_2606290257.mp4'
